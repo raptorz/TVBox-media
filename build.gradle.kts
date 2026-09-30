@@ -16,6 +16,10 @@ import java.io.File
 import org.gradle.api.tasks.Exec
 
 buildscript {
+  // Gradle 9.7's embedded Kotlin pins annotations to 13.0, while AGP needs 23.0.
+  configurations.classpath {
+    resolutionStrategy.force("org.jetbrains:annotations:23.0.0")
+  }
   repositories {
     google()
     mavenCentral()
